@@ -34,6 +34,12 @@ const userRoutes = require('./routes/user/user');
 app.use('/api', authRoutes);  
 app.use('/api', userRoutes);       
 
+
+//heroku deployment
+app.get('/',(req,res)=>{
+    res.send("hello world")
+})
+
 //routes middlware
 app.use("/",productRoute);
 app.use("/",categoryRoute);
