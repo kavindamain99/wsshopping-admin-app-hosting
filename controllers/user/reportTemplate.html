@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Assignment Fucking Crazy</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/src/css/main.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <style>
+        body{
+            font-size: 10px !important;
+            border: 1px solid #252636 !important;
+            margin: 5px !important;
+            height: 300mm !important;
+
+        }
+        .bg-theme-col{
+            background-color: #252636 !important;
+            color: #fff !important;
+        }
+
+        .search{
+            margin-bottom: 15px !important;
+        }
+
+        .search input{
+            padding: 5px 10px !important;
+            border: 2px solid #252636 !important;
+            width: 30% !important;
+        }
+
+        .search button{
+            padding: 5px 25px !important;
+            border: 2px solid #252636 !important;
+        }
+
+        .btn-bind-left{
+            border-top-right-radius: 0px !important;
+            border-bottom-right-radius: 0px !important;
+        }
+
+        .btn-bind-right{
+            border-top-left-radius: 0px !important;
+            border-bottom-left-radius: 0px !important;
+        }
+
+        .table-name{
+            margin: 0 !important;
+            background: #252636 !important;
+            color: #fff !important;
+            padding: 10px !important;
+            border-top-left-radius: 5px !important;
+            border-top-right-radius: 5px !important;
+            border-bottom: 2px solid #323333 !important;
+        }
+
+        .btn-clear{
+            display: none !important;
+            background: #252636 !important;
+            color: #fff !important;
+            font-weight: bold !important;
+            border-bottom-left-radius: 25px !important;
+            border-bottom-right-radius: 25px !important;
+            font-size: 20px !important;
+            padding: 0px 15px 5px 15px !important;
+        }
+
+        .del-pad{
+            padding-left: 15px !important;
+            padding-right: 15px !important;
+        }
+
+        .mark-in{
+            padding: 5px 5px !important;
+            border-radius: 5px 0px 0px 5px !important;
+            border: 1px solid #c8c0c0 !important;
+        }
+
+        .mark-btn{
+            padding: 4px 10px !important;
+            border-radius: 0px 5px 5px 0px !important;
+            background: #f0ad4e !important;
+            border: 2px solid #f0ad4e !important;
+            color: #fff !important;
+        }
+
+    </style>
+
+  </head>
+  <body>
+
+    <h5 style="text-align: center;text-align: center;background: #252636 !important;padding: 10px !important;padding-top: 12px !important;font-weight: bold !important;color: #fff !important;margin-top: 0px !important;">User Report</h5>
+    
+    <div class="row" style="padding: 0px 30px 30px 30px !important;">
+
+        <div class="col-lg-1"></div>
+        <div class="col-lg-10">
+            
+            <ul style="list-style-type:square;">
+                <li>
+                    <h5 style="text-align: left;">Generated In: {{date}}</h5>
+                </li>
+                <li>
+                    <h5 style="text-align: left;">Registered Users: {{registered}}</h5>
+                </li>
+                <li>
+                    <h5 style="text-align: left;">Deleted Users: {{deleteCount}}</h5>
+                </li>
+                <li>
+                    <h5 style="text-align: left;">Current Users: {{userCount}}</h5>
+                </li>
+            </ul>
+
+            <hr/>
+
+            <label class="table-name"><i class="fa fa-book" style="color: #fff !important;"></i> Current Users</label>
+            <table class="table table-hover">
+                <thead>
+                  <tr>
+                    <th style="background-color: #252636 !important;color: #fff !important;">Name</th>
+                    <th style="background-color: #252636 !important;color: #fff !important;">Email</th>
+                    <th style="background-color: #252636 !important;color: #fff !important;">Phone Number</th>
+                    <th style="background-color: #252636 !important;color: #fff !important;">Created At</th>
+                  </tr>
+                </thead>
+       
+                <tbody>
+                    
+                    {{#each userData}}
+
+                    <tr>
+                        <td>{{this.lastname}} {{this.firstname}}</td>
+                        <td>{{this.email}}</td>
+                        <td>{{this.phoneno}}</td>
+                        <td>{{this.createdAt}}</td>
+                    </tr>
+
+                    {{/each}}
+
+                </tbody>
+
+            </table>
+            
+            <br/>
+            <label class="table-name"><i class="fa fa-book" style="color: #fff !important;"></i> Deleted Users</label>
+            <table class="table table-hover">
+                <thead>
+                  <tr>
+                    <th style="background-color: #252636 !important;color: #fff !important;">Name</th>
+                    <th style="background-color: #252636 !important;color: #fff !important;">Email</th>
+                    <th style="background-color: #252636 !important;color: #fff !important;">Phone Number</th>
+                    <th style="background-color: #252636 !important;color: #fff !important;">Created At</th>
+                  </tr>
+                </thead>
+       
+                <tbody>
+                    {{#each deleteData}}
+                    <tr>
+                        <td>{{this.lastname}} {{this.firstname}}</td>
+                        <td>{{this.email}}</td>
+                        <td>{{this.phoneno}}</td>
+                        <td>{{this.createdAt}}</td>
+                    </tr>
+
+                    {{/each}}
+
+                </tbody>
+
+            </table>
+
+            </div>
+            <div class="col-lg-1"></div>
+        </div>
+      
+    </ul>
+  </body>
+</html>
